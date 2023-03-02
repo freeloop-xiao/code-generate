@@ -1,0 +1,42 @@
+package ${package.Parent}.domain.converter;
+
+import ${package.Entity}.${entity};
+import ${package.Parent}.domain.dto.${entity}AddDTO;
+import ${package.Parent}.domain.dto.${entity}EditDTO;
+import ${package.Parent}.domain.vo.${entity}VO;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+
+/**
+ * <p>
+ * $!{table.comment} 类型转换器类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+public interface ${entity}Converter {
+
+
+    /**
+     * 新增DTO转换为Entity
+     */
+    ${entity} toEntityByAddDTO(${entity}AddDTO source);
+
+
+    /**
+     *  修改DTO转换为Entity
+     */
+    ${entity} toEntityByEditDTO(${entity}EditDTO source);
+
+
+    /**
+      * 实体转换为VO
+      */
+    ${entity}VO toVO(${entity} source);
+
+
+
+}
+
