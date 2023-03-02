@@ -1,0 +1,60 @@
+buildscript {
+	repositories {
+		mavenLocal()
+		maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+		maven { url 'https://maven.aliyun.com/repository/google' }
+		maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+		maven { url 'https://maven.aliyun.com/repository/jcenter'}
+		mavenCentral()
+	}
+}
+
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.8'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group = 'com.code'
+version = '0.0.1-SNAPSHOT'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenLocal()
+	maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+	maven { url 'https://maven.aliyun.com/repository/google' }
+	maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+	maven { url 'https://maven.aliyun.com/repository/jcenter'}
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'cn.hutool:hutool-all:5.8.12'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.shell:spring-shell-starter:2.1.7'
+	implementation 'com.baomidou:mybatis-plus:3.5.3'
+	implementation 'com.baomidou:mybatis-plus-generator:3.5.3'
+	implementation 'org.apache.velocity:velocity-engine-core:2.3'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.28'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.baomidou:mybatis-plus-generator:3.5.3'
+	testImplementation 'org.apache.velocity:velocity-engine-core:2.3'
+
+//	去除依赖
+//	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'org.springframework.boot:spring-boot-starter-validation'
+//	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+//	implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.3'
+//	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+}
