@@ -30,6 +30,17 @@ import java.util.*;
 @AllArgsConstructor
 public class CodeGenerateServiceImpl implements CodeGenerateService {
 
+    /**
+     * 代码生成子命令
+     */
+    private static final String CODE_COMMAND = "code";
+
+
+    /**
+     * 项目工程子命令
+     */
+    private static final String PROJECT_COMMAND = "project";
+
     private final DbConfig dbConfig;
 
     private final TemplateConfig templateConfig;
@@ -40,10 +51,11 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
         return FastAutoGenerator.create(url, dbConfig.getUser(), dbConfig.getPassword());
     }
 
+
+
+
     @Override
     public String build() {
-        System.out.println(dbConfig);
-        System.out.println(templateConfig);
 
         FastAutoGenerator generator = createGenerator();
 

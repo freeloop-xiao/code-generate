@@ -48,7 +48,6 @@ public class Command {
         return configService.dbCommandParse(operation, param, value);
     }
 
-
     /**
      * 模版配置命令
      *
