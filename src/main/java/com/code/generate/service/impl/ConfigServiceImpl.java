@@ -37,6 +37,11 @@ public class ConfigServiceImpl implements ConfigService {
     private static final String SET_COMMAND = "set";
 
     /**
+     * 数据库检查
+     */
+    private static final String CHECK_COMMAND = "check";
+
+    /**
      * 帮助信息
      */
     private static final String HELP_COMMAND = "help";
@@ -56,6 +61,8 @@ public class ConfigServiceImpl implements ConfigService {
             return setDbInfo(param, value);
         } else if (Objects.equals(operation, HELP_COMMAND)) {
             return dbHelp();
+        }else if (Objects.equals(operation,CHECK_COMMAND)){
+            return dbConfig.check();
         }
         return "命令或者参数错误";
     }
@@ -90,6 +97,7 @@ public class ConfigServiceImpl implements ConfigService {
     @Override
     public String setCodeTemplateInfo(String property, String value) {
         switch (property) {
+            case "group" -> templateConfig.setProjectGroup(value);
             case "author" -> templateConfig.setAuthor(value);
             case "path" -> templateConfig.setPath(value);
             case "package" -> templateConfig.setPackageName(value);
@@ -115,6 +123,7 @@ public class ConfigServiceImpl implements ConfigService {
                 配置数据库信息：
                   db  set  属性  属性值\s
                   属性：
+                         group ：项目工程group(用于生成工程文件)\s
                          host ：数据库主机地址\s
                          port ：数据库端口\s
                          db ：数据库名称\s

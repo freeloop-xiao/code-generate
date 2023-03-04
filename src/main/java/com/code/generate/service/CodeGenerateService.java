@@ -16,9 +16,11 @@ public interface CodeGenerateService {
 
     /**
      * 创建Generator
+     *
      * @return generator
      */
     FastAutoGenerator createGenerator();
+
 
 
     /**

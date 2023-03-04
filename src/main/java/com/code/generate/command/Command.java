@@ -36,7 +36,7 @@ public class Command {
     /**
      * DB配置命令
      *
-     * @param operation 操作 info/set
+     * @param operation 操作 info/set/check
      * @param param     属性
      * @param value     属性值
      * @return result
@@ -47,7 +47,6 @@ public class Command {
                      @ShellOption(defaultValue = NULL) String value) {
         return configService.dbCommandParse(operation, param, value);
     }
-
 
     /**
      * 模版配置命令
@@ -75,13 +74,4 @@ public class Command {
         return codeGenerateService.build();
     }
 
-    /**
-     * 数据库信息检测
-     *
-     * @return result
-     */
-    @ShellMethod("check")
-    public Object check() {
-        return dbConfig.check();
-    }
 }
