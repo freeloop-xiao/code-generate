@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 @Component
 public class DbConfig {
 
-    public static final String DB_URL = "jdbc:mysql://{}:{}/{}?useUnicode=true&useSSL=false&characterEncoding=utf8&&serverTimezone=UTC";
+    public static final String DB_URL = "jdbc:mysql://{}:{}/{}?useUnicode=true&useSSL=false&characterEncoding=utf8&&serverTimezone=UTC&allowPublicKeyRetrieval=true";
 
     /**
      * 数据库主机
@@ -76,6 +76,6 @@ public class DbConfig {
                     "user: " + getUser() + "\n" +
                     "password: " + getPassword() + "\n";
         }
-        return "数据库检查成功!";
+        return "OK!";
     }
 }

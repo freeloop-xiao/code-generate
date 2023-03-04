@@ -55,12 +55,20 @@ public class TemplateConfig {
     @Value("#{'${template.tables}'.split(',')}")
     private List<String> tables;
 
+
+    /**
+     * 生成工程文件build.gradle和settings.gradle 文件配置信息
+     */
+    @Value("${template.project-group}")
+    private String projectGroup;
+
     @Override
     public String toString() {
         return "模版配置信息：>>>>>>>>>>>>>>>>>>>>>>\n" +
+                "group=" + projectGroup + "\n" +
                 "author=" + author + "\n" +
                 "path=" + path + "\n" +
-                "packageName=" + packageName + "\n" +
+                "package=" + packageName + "\n" +
                 "tables=" + tables + "\n" +
                 "================================";
     }

@@ -1,3 +1,9 @@
+## 🐯 需求
+|     | 功能      | 描述       |
+|-----|---------|----------|
+| ⭐️  | 生成项目工程  | 生成项目模版工程 |
+
+
 ## 🐯 平台简介
 
 **FreeLoop**，以开发者为中心，打造通用用户管理快速开发平台，全部开源，个人与企业可 100% 免费使用。
@@ -13,6 +19,7 @@
 
 * 检测数据库配置
 * 生成代码功能
+* 如果不存在工程build.gradle和settings.gradle文件会自动生成
 
 
 🙂 所有功能，都通过 **测试** 保证高质量。
@@ -28,12 +35,14 @@
 
  java -jar code-generate-0.0.1-SNAPSHOT.jar
 
+说明：
+    可以将使用配置文件的方式生成模版代码,application.yaml放到jar包同级的config目录下；
+
 ### 命令说明
 
 |       | 命令       | 描述        |
 |-------|----------|-----------|
 | ⭐ ️️  | db       | 设置数据库配置   |
-| ⭐️    | check    | 检查数据库配置信息 |
 | ⭐️    | template | 设置模版配置信息  |
 
 #### 命令：db
@@ -50,10 +59,8 @@
     5. user: 数据库用户名 - 例如: db set user root
 
     6. password: 数据库密码 - 例如 db set password xzY@123.!
-
-#### 命令：check
-    选项： 无
-    直接执行 check命令，会对数据进行连接测试并且返回结果
+ 
+    7. check 检测数据库连接信息 - 例如 db check
 
 #### 命令：template
     选项：
@@ -67,6 +74,12 @@
     4. package: 生成代码包名 - 例如: tempalte set package com.free.loop.demo
 
     5. tables: 生成代码表列表 - 例如: template set tables t_user,t_role
+
+    6. group:  工程group(如果需要生成build.gradle文件则需要配置否则可以不配置)- 例如: template set group com.code
+
+
+#### 命令：generate
+    1.生成代码 - 例如 generate
 
 
 
