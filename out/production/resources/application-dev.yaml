@@ -1,0 +1,23 @@
+#数据库配置
+db:
+  #数据库主机配置
+  host: localhost
+  #端口
+  port: 3306
+  #数据库库名
+  name: tx_account
+  #数据库账户
+  user: root
+  #数据库密码
+  password: freeloop
+#代码生成模版配置
+template:
+  #项目group分组
+  project-group: com.code
+  #代码署名
+  author: free loop
+  #代码生成包名
+  package-name: com.free.loop.demo
+  #工程目录位置,如果是多项目则是子工程目录(需要以/结尾)
+  project-path: /Users/xiaokun/code/code-generate-test/
+  tables: t_account

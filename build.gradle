@@ -37,7 +37,7 @@ dependencies {
 	implementation 'cn.hutool:hutool-all:5.8.12'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.shell:spring-shell-starter:2.1.7'
-	implementation 'com.baomidou:mybatis-plus:3.5.3'
+	implementation 'com.baomidou:mybatis-plus-core:3.5.3'
 	implementation 'com.baomidou:mybatis-plus-generator:3.5.3'
 	implementation 'org.apache.velocity:velocity-engine-core:2.3'
 	compileOnly 'org.projectlombok:lombok'
@@ -50,6 +50,7 @@ dependencies {
 	testImplementation 'org.apache.velocity:velocity-engine-core:2.3'
 
 //	去除依赖
+// 	implementation 'com.baomidou:mybatis-plus:3.5.3'
 //	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 //	implementation 'org.springframework.boot:spring-boot-starter-web'
 //	implementation 'org.springframework.boot:spring-boot-starter-validation'

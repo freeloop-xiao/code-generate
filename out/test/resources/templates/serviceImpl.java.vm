@@ -1,0 +1,47 @@
+package ${package.ServiceImpl};
+
+import ${package.Entity}.${entity};
+import ${package.Parent}.domain.dto.${entity}AddDTO;
+import ${package.Parent}.domain.dto.${entity}EditDTO;
+import ${package.Parent}.domain.vo.${entity}VO;
+import ${package.Parent}.domain.converter.${entity}Converter;
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+import lombok.AllArgsConstructor;
+
+/**
+ * <p>
+ * $!{table.comment} 服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service
+@AllArgsConstructor
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+
+    private final ${entity}Converter converter;
+
+
+    @Override
+    public Boolean add(${entity}AddDTO dto) {
+        return save(converter.toEntityByAddDTO(dto));
+    }
+
+
+    @Override
+    public Boolean edit(${entity}EditDTO dto) {
+        return updateById(converter.toEntityByEditDTO(dto));
+    }
+
+
+    @Override
+    public ${entity}VO get(Long id) {
+        return converter.toVO(getById(id));
+    }
+
+
+}
