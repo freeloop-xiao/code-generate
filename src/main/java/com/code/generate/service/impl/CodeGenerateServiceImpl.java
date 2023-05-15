@@ -5,7 +5,6 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.builder.CustomFile;
-import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import com.code.generate.config.DbConfig;
 import com.code.generate.config.TemplateConfig;
 import com.code.generate.engine.CustomVelocityTemplateEngine;
@@ -41,8 +40,14 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
      */
     private static final String PROJECT_COMMAND = "project";
 
+    /**
+     * 数据库配置信息
+     */
     private final DbConfig dbConfig;
 
+    /**
+     * 代码模版配置信息
+     */
     private final TemplateConfig templateConfig;
 
     @Override
@@ -50,8 +55,6 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
         String url = StrUtil.format(DbConfig.DB_URL, dbConfig.getHost(), dbConfig.getPort(), dbConfig.getDb());
         return FastAutoGenerator.create(url, dbConfig.getUser(), dbConfig.getPassword());
     }
-
-
 
 
     @Override
@@ -103,11 +106,11 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
                     // 开启Lombok
                     .entityBuilder().enableLombok();
         }).injectionConfig(builder -> {
-            Map<String,Object> customMap = new HashMap<>();
+            Map<String, Object> customMap = new HashMap<>();
             String[] pathArr = templateConfig.getPath().split(FileUtil.FILE_SEPARATOR);
             String projectName = pathArr[pathArr.length - 1];
-            customMap.put("projectName",projectName);
-            customMap.put("projectGroup",templateConfig.getProjectGroup());
+            customMap.put("projectName", projectName);
+            customMap.put("projectGroup", templateConfig.getProjectGroup());
             builder.customMap(customMap);
             // 添加自定义文件输出
             List<CustomFile> customFiles = new ArrayList<>();
