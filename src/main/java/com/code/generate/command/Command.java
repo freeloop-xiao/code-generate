@@ -24,8 +24,15 @@ import static org.springframework.shell.standard.ShellOption.NULL;
 @AllArgsConstructor
 public class Command {
 
+
+    /**
+     * 配置信息业务类
+     */
     private final ConfigService configService;
 
+    /**
+     * 代码生成类
+     */
     private final CodeGenerateService codeGenerateService;
 
 
@@ -38,11 +45,10 @@ public class Command {
      * @return result
      */
     @ShellMethod("db")
-    public Object db(@ShellOption(defaultValue = NULL) String operation,
-                     @ShellOption(defaultValue = NULL) String param,
-                     @ShellOption(defaultValue = NULL) String value) {
+    public Object db(@ShellOption(defaultValue = NULL) String operation, @ShellOption(defaultValue = NULL) String param, @ShellOption(defaultValue = NULL) String value) {
         return configService.dbCommandParse(operation, param, value);
     }
+
 
     /**
      * 模版配置命令
@@ -53,9 +59,7 @@ public class Command {
      * @return result
      */
     @ShellMethod("template")
-    public Object template(@ShellOption(defaultValue = NULL) String operation,
-                           @ShellOption(defaultValue = NULL) String param,
-                           @ShellOption(defaultValue = NULL) String value) {
+    public Object template(@ShellOption(defaultValue = NULL) String operation, @ShellOption(defaultValue = NULL) String param, @ShellOption(defaultValue = NULL) String value) {
         return configService.templateCommandParse(operation, param, value);
     }
 
