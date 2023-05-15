@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
 @Accessors(chain = true)
 #end
 #if(${swagger})
-@ApiModel(value="${entity}传输对象", description="$!{table.comment}")
+@ApiModel(value="${entity}AddDTO新增传输对象", description="$!{table.comment}")
 #end
 #if(${superEntityClass})
 public class ${entity} extends ${superEntityClass}#if(${activeRecord})<${entity}>#end {

@@ -56,10 +56,11 @@ public class DbConfig {
 
     @Override
     public String toString() {
-        return "数据库配置  >>>>>>>>>>> \n" +
-                "  host = " + host + "\n" +
-                "  port = " + port + "\n" +
-                "  db = " + db + "\n" +
+        return "           数据库配置信息 \n" +
+                " ==============================\n" +
+                "  host     = " + host + "\n" +
+                "  port     = " + port + "\n" +
+                "  db       = " + db + "\n" +
                 "  username = " + user + "\n" +
                 "  password = " + password + "\n" +
                 " ==============================\n";

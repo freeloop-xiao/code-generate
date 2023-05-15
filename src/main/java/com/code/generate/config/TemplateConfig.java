@@ -64,12 +64,13 @@ public class TemplateConfig {
 
     @Override
     public String toString() {
-        return "模版配置信息：>>>>>>>>>>>>>>>>>>>>>>\n" +
-                "group=" + projectGroup + "\n" +
-                "author=" + author + "\n" +
-                "path=" + path + "\n" +
-                "package=" + packageName + "\n" +
-                "tables=" + tables + "\n" +
-                "================================";
+        return "          模版配置信息\n" +
+                " ==============================\n" +
+                "  group   = " + projectGroup + "\n" +
+                "  author  = " + author + "\n" +
+                "  path    = " + path + "\n" +
+                "  package = " + packageName + "\n" +
+                "  tables  = " + tables + "\n" +
+                " ==============================\n";
     }
 }

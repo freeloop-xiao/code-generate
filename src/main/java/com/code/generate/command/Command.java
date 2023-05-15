@@ -1,7 +1,5 @@
 package com.code.generate.command;
 
-
-import com.code.generate.config.DbConfig;
 import com.code.generate.service.CodeGenerateService;
 import com.code.generate.service.ConfigService;
 import lombok.AllArgsConstructor;
@@ -27,8 +25,6 @@ import static org.springframework.shell.standard.ShellOption.NULL;
 public class Command {
 
     private final ConfigService configService;
-
-    private final DbConfig dbConfig;
 
     private final CodeGenerateService codeGenerateService;
 
