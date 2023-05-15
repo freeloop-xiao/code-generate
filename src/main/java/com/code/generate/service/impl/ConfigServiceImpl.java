@@ -46,8 +46,14 @@ public class ConfigServiceImpl implements ConfigService {
      */
     private static final String HELP_COMMAND = "help";
 
+    /**
+     * 数据库配置信息
+     */
     private final DbConfig dbConfig;
 
+    /**
+     * 模版配置信息
+     */
     private final TemplateConfig templateConfig;
 
 

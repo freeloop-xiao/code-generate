@@ -30,17 +30,6 @@ import java.util.*;
 public class CodeGenerateServiceImpl implements CodeGenerateService {
 
     /**
-     * 代码生成子命令
-     */
-    private static final String CODE_COMMAND = "code";
-
-
-    /**
-     * 项目工程子命令
-     */
-    private static final String PROJECT_COMMAND = "project";
-
-    /**
      * 数据库配置信息
      */
     private final DbConfig dbConfig;
@@ -106,12 +95,14 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
                     // 开启Lombok
                     .entityBuilder().enableLombok();
         }).injectionConfig(builder -> {
+
             Map<String, Object> customMap = new HashMap<>();
             String[] pathArr = templateConfig.getPath().split(FileUtil.FILE_SEPARATOR);
             String projectName = pathArr[pathArr.length - 1];
             customMap.put("projectName", projectName);
             customMap.put("projectGroup", templateConfig.getProjectGroup());
             builder.customMap(customMap);
+
             // 添加自定义文件输出
             List<CustomFile> customFiles = new ArrayList<>();
             customFiles.add(new CustomFile.Builder().fileName("build.gradle").templatePath("/templates/build.gradle.vm").filePath(templateConfig.getPath()).build());
