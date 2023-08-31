@@ -5,7 +5,6 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.builder.CustomFile;
-import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import com.code.generate.config.DbConfig;
 import com.code.generate.config.TemplateConfig;
 import com.code.generate.engine.CustomVelocityTemplateEngine;
@@ -52,8 +51,6 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
     }
 
 
-
-
     @Override
     public String build() {
 
@@ -82,8 +79,10 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
         generator.globalConfig(builder -> {
             // 设置作者
             builder.author(templateConfig.getAuthor())
+                    // 开启springdoc
+                    .enableSpringdoc()
                     // 开启swagger注释
-                    .enableSwagger()
+//                    .enableSwagger()
                     // 生成之后不打开文件夹
                     .disableOpenDir()
                     // 指定类文件输出目录
@@ -103,16 +102,16 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
                     // 开启Lombok
                     .entityBuilder().enableLombok();
         }).injectionConfig(builder -> {
-            Map<String,Object> customMap = new HashMap<>();
+            Map<String, Object> customMap = new HashMap<>();
             String[] pathArr = templateConfig.getPath().split(FileUtil.FILE_SEPARATOR);
             String projectName = pathArr[pathArr.length - 1];
-            customMap.put("projectName",projectName);
-            customMap.put("projectGroup",templateConfig.getProjectGroup());
+            customMap.put("projectName", projectName);
+            customMap.put("projectGroup", templateConfig.getProjectGroup());
             builder.customMap(customMap);
             // 添加自定义文件输出
             List<CustomFile> customFiles = new ArrayList<>();
-            customFiles.add(new CustomFile.Builder().fileName("build.gradle").templatePath("/templates/build.gradle.vm").filePath(templateConfig.getPath()).build());
-            customFiles.add(new CustomFile.Builder().fileName("settings.gradle").templatePath("/templates/settings.gradle.vm").filePath(templateConfig.getPath()).build());
+//            customFiles.add(new CustomFile.Builder().fileName("build.gradle").templatePath("/templates/build.gradle.vm").filePath(templateConfig.getPath()).build());
+//            customFiles.add(new CustomFile.Builder().fileName("settings.gradle").templatePath("/templates/settings.gradle.vm").filePath(templateConfig.getPath()).build());
             customFiles.add(new CustomFile.Builder().fileName("AddDTO.java").templatePath("/templates/add-dto.java.vm").packageName("domain/dto").build());
             customFiles.add(new CustomFile.Builder().fileName("EditDTO.java").templatePath("/templates/edit-dto.java.vm").packageName("domain/dto").build());
             customFiles.add(new CustomFile.Builder().fileName("VO.java").templatePath("/templates/vo.java.vm").packageName("domain/vo").build());
