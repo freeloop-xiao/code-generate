@@ -67,7 +67,7 @@ public class ${entity}AddDTO {
      */
     #end
 #end
-private ${field.propertyType} ${field.propertyName};
+    private ${field.propertyType} ${field.propertyName};
 #end
 ## ----------  END 字段循环遍历  ----------
 #if(!${entityLombokModel})
