@@ -1,7 +1,9 @@
 package ${package.Parent}.domain.dto;
 
 #foreach($pkg in ${table.importPackages})
-import ${pkg};
+#if($pkg != "com.baomidou.mybatisplus.annotation.TableName")
+import $pkg;
+#end
 #end
 #if(${springdoc})
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -48,7 +50,6 @@ public class ${entity}AddDTO {
 #end
 #if(${entitySerialVersionUID})
 
-    private static final long serialVersionUID = 1L;
 #end
 ## ----------  BEGIN 字段循环遍历  ----------
 #foreach($field in ${table.fields})

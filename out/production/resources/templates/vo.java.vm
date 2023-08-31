@@ -1,7 +1,9 @@
 package ${package.Parent}.domain.vo;
 
 #foreach($pkg in ${table.importPackages})
-import ${pkg};
+#if($pkg != "com.baomidou.mybatisplus.annotation.TableName")
+import $pkg;
+#end
 #end
 #if(${springdoc})
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -32,9 +34,6 @@ import lombok.Setter;
     @Accessors(chain = true)
     #end
 #end
-#if(${table.convert})
-@TableName("${schemaName}${table.name}")
-#end
 #if(${springdoc})
 @Schema(name = "${entity}", description = "$!{table.comment}")
 #elseif(${swagger})
@@ -51,7 +50,6 @@ public class ${entity}VO {
 #end
 #if(${entitySerialVersionUID})
 
-private static final long serialVersionUID = 1L;
 #end
 ## ----------  BEGIN 字段循环遍历  ----------
 #foreach($field in ${table.fields})
@@ -106,4 +104,4 @@ private static final long serialVersionUID = 1L;
     #end
 #end
 
-        }
+}

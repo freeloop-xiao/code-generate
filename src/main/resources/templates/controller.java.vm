@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import java.util.Map;
 import jakarta.validation.Valid;
-import $!{package.Entity}.$!{entity};
 import ${package.Parent}.domain.dto.${entity}AddDTO;
 import ${package.Parent}.domain.dto.${entity}EditDTO;
 import ${package.Parent}.domain.vo.${entity}VO;
